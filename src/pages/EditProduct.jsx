@@ -59,10 +59,10 @@ const EditProduct = ({productData,setProductData}) => {
   return (
     <div className="m-h-screen flex justify-center items-center bg-gray-100">
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 mt-30">
-        <h1 className=" text-3xl font-bold text-center mb-6">Edit Details</h1>
+        <h1 className=" text-3xl font-bold text-center font-serif mb-6">Edit Details</h1>
 
         <div>
-          <label className="block font-semibold" htmlFor="">
+          <label className="block font-semibold font-serif" htmlFor="">
             Product Title
           </label>
           <input
@@ -70,12 +70,12 @@ const EditProduct = ({productData,setProductData}) => {
             onChange={(e) =>
               setEditData({ ...editData, title: e.target.value })
             }
-            className="w-full border rounded-lg p-3 mt-2"
+            className="w-full border font-serif rounded-lg p-3 mt-2"
             type="text"
           />
         </div>
         <div className="mt-5">
-          <label className="block font-semibold" htmlFor="">
+          <label className="block font-semibold font-serif" htmlFor="">
             Price
           </label>
           <input
@@ -83,13 +83,13 @@ const EditProduct = ({productData,setProductData}) => {
             onChange={(e) =>
               setEditData({ ...editData, price: e.target.value })
             }
-            className="w-full border rounded-lg p-3 mt-2"
+            className="w-full border  rounded-lg p-3 mt-2"
             type="text"
             placeholder="Enter product price"
           />
         </div>
         <div className="mt-5">
-          <label className="block font-semibold" htmlFor="">
+          <label className="block font-semibold font-serif" htmlFor="">
             Category
           </label>
           <input
@@ -97,13 +97,13 @@ const EditProduct = ({productData,setProductData}) => {
             onChange={(e) =>
               setEditData({ ...editData, category: e.target.value })
             }
-            className="w-full border rounded-lg p-3 mt-2"
+            className="w-full border font-serif rounded-lg p-3 mt-2"
             type="text"
             placeholder="Enter product price"
           />
         </div>
         <div className="mt-5">
-          <label className="block font-semibold" htmlFor="">
+          <label className="block font-semibold font-serif" htmlFor="">
             Image URL
           </label>
           <input
@@ -111,13 +111,13 @@ const EditProduct = ({productData,setProductData}) => {
             onChange={(e) =>
               setEditData({ ...editData, image: e.target.value })
             }
-            className="w-full border rounded-lg p-3 mt-2"
+            className="w-full border font-serif rounded-lg p-3 mt-2"
             type="text"
             placeholder="Enter product price"
           />
         </div>
         <div className="mt-5">
-          <label className="block font-semibold mb-1">Description</label>
+          <label className="block font-semibold font-serif mb-1">Description</label>
           <textarea
             value={editData.description}
             onChange={(e) =>
@@ -125,11 +125,11 @@ const EditProduct = ({productData,setProductData}) => {
             }
             rows="4"
             placeholder="Enter product description"
-            className="w-full border rounded-lg p-3"
+            className="w-full border font-serif rounded-lg p-3"
           ></textarea>
           <div className="mt-3">
             <button
-            onClick={()=>onEditClick(id)} className="mx-50    bg-green-900 p-2 rounded">
+            onClick={()=>onEditClick(id)} className="mx-35 font-serif text-white w-30 cursor-pointer  bg-green-700 p-4 hover:bg-green-900 rounded">
               Update
             </button>
           </div>

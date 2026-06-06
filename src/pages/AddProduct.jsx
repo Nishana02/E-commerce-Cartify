@@ -66,15 +66,15 @@ const AddProduct = ({ setProductData }) => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 mt-30">
-        <h1 className="text-3xl font-bold text-center mb-6">Add Product</h1>
+        <h1 className="text-3xl font-bold text-center font-serif mb-6">Add Product</h1>
 
         <form className="space-y-4" onSubmit={onAddClick}>
           <div>
-            <label className="block font-semibold mb-1">Product Title</label>
+            <label className="block font-semibold mb-1 font-serif">Product Title</label>
             <input
               type="text"
               placeholder="Enter product title"
-              className="w-full border rounded-lg p-3"
+              className="w-full border font-serif rounded-lg p-3"
               onChange={(e) =>
                 setFormData({ ...formData, title: e.target.value })
               }
@@ -86,11 +86,11 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Price</label>
+            <label className="block font-semibold mb-1 font-serif">Price</label>
             <input
               type="number"
               placeholder="Enter price"
-              className="w-full border rounded-lg p-3"
+              className="w-full border  font-serifrounded-lg p-3"
               onChange={(e) =>
                 setFormData({ ...formData, price: e.target.value })
               }
@@ -102,11 +102,11 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Category</label>
+            <label className="block font-semibold font-serif mb-1">Category</label>
             <input
               type="text"
               placeholder="Enter category"
-              className="w-full border rounded-lg p-3"
+              className="w-full border font-serif rounded-lg p-3"
               onChange={(e) =>
                 setFormData({ ...formData, category: e.target.value })
               }
@@ -118,11 +118,11 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Image URL</label>
+            <label className="block font-semibold font-serif mb-1">Image URL</label>
             <input
               type="text"
               placeholder="Enter image URL"
-              className="w-full border rounded-lg p-3"
+              className="w-full border font-serif rounded-lg p-3"
               onChange={(e) =>
                 setFormData({ ...formData, image: e.target.value })
               }
@@ -134,11 +134,11 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Description</label>
+            <label className="block font-semibold font-serif mb-1">Description</label>
             <textarea
               rows="4"
               placeholder="Enter product description"
-              className="w-full border rounded-lg p-3"
+              className="w-full border font-serif rounded-lg p-3"
               value={formData.description}
               onChange={(e) =>
                 setFormData({ ...formData, description: e.target.value })
@@ -153,7 +153,7 @@ const AddProduct = ({ setProductData }) => {
           <div className="flex justify-center gap-4 pt-4">
             <button
               type="submit"
-              className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700"
+              className="bg-green-600 font-serif text-white px-6 py-2 rounded-lg hover:bg-green-700"
             >
               Add Product
             </button>

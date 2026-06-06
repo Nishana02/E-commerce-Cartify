@@ -5,9 +5,12 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const ProductDetails = ({ productData, setProductData }) => {
+
+
   const navigate = useNavigate();
   const { id } = useParams();
   const [data, setData] = useState({});
+
 
   useEffect(() => {
     const changedProduct = productData.find(
@@ -23,6 +26,8 @@ const ProductDetails = ({ productData, setProductData }) => {
 
   const getSingleProduct = async (id) => {
     try {
+
+      setLoading(true)
       let apiResponse = await axios.get(
         `https://fakestoreapi.com/products/${id}`,
       );
@@ -51,7 +56,7 @@ const ProductDetails = ({ productData, setProductData }) => {
 
   return (
     <>
-      <div className="mt-35 px-4">
+      <div className="mt-28 px-4">
         <h1 className="text-center text-3xl font-bold font-serif mb-10">
           Product Details
         </h1>
@@ -61,25 +66,25 @@ const ProductDetails = ({ productData, setProductData }) => {
             <img
               src={data.image}
               alt=""
-              className="w-40 h-40 md:w-60 md:h-60 object-contain"
+              className="w-50 h-40 md:w-60 md:h-60 object-contain mt-20"
             />
           </div>
 
           <div className="border rounded-lg w shadow p-6 flex-1 mt-5 mx-30">
-            <h2 className="text-xl font-semibold mb-4">
-              <span className="font-bold">Title : </span>
+            <h2 className="text-xl font-semibold mb-4 font-serif">
+              <span className="font-bold font-serif">Title : </span>
               {data.title}
             </h2>
-            <p className="text-black font-semibold  mb-4">
-              <span className="font-bold">Category : </span>
+            <p className="text-black font-semibold font-serif  mb-4">
+              <span className="font-bold font-serif">Category : </span>
               {data.category}
             </p>
-            <p className="text-black font-semibold  mb-4">
-              <span className="font-bold">Description :</span>
+            <p className="text-black font-semibold font-serif text-justify  mb-4">
+              <span className="font-bold font-serif">Description : </span>
               {data.description}
             </p>
-            <p className="font-bold text-lg">Price: Rs.{data.price}</p>
-            <div className="mt-20 flex  gap-3 items-center">
+            <p className="font-bold   text-lg">Price : Rs.{data.price}</p>
+            <div className="mt-10 flex  gap-3 items-center">
               <Link
                 to={`/product/${id}/edit`}
                 className="bg-blue-600 ms-40 text-white px-4 py-2 cursor-pointer rounded hover:bg-blue-800"
