@@ -16,29 +16,29 @@ const AddProduct = ({ setProductData }) => {
   const [errors, setErrors] = useState({});
 
   const onAddClick = async (e) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     let newErrors = {};
-    if (formData.title=="") {
+    if (formData.title == "") {
       newErrors.title = "Title is required";
     }
 
-    if (formData.price=="") {
+    if (formData.price == "") {
       newErrors.price = "Price is required";
     }
-    if (formData.category=="") {
+    if (formData.category == "") {
       newErrors.category = "Category is required";
     }
-    if (formData.image=="") {
+    if (formData.image == "") {
       newErrors.image = "Image URL is required";
     }
-    if (formData.description=="") {
+    if (formData.description == "") {
       newErrors.description = "Description is required";
     }
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.keys(newErrors).length == 0) {
       try {
         let apiResponse = await axios.post(
           "https://fakestoreapi.com/products",
@@ -63,14 +63,32 @@ const AddProduct = ({ setProductData }) => {
     }
   };
 
+  const onResetClick = async () => {
+    try {
+      setFormData({
+        title: "",
+        price: "",
+        description: "",
+        category: "",
+        image: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
-      <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 mt-30">
-        <h1 className="text-3xl font-bold text-center font-serif mb-6">Add Product</h1>
+    <div className="min-h-screen flex justify-center items-center bg-gray-100  ">
+      <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 mt-25">
+        <h1 className="text-3xl font-bold text-center font-serif mb-6">
+          Add Product
+        </h1>
 
         <form className="space-y-4" onSubmit={onAddClick}>
           <div>
-            <label className="block font-semibold mb-1 font-serif">Product Title</label>
+            <label className="block font-semibold mb-1 font-serif">
+              Product Title
+            </label>
             <input
               type="text"
               placeholder="Enter product title"
@@ -102,7 +120,9 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold font-serif mb-1">Category</label>
+            <label className="block font-semibold font-serif mb-1">
+              Category
+            </label>
             <input
               type="text"
               placeholder="Enter category"
@@ -118,7 +138,9 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold font-serif mb-1">Image URL</label>
+            <label className="block font-semibold font-serif mb-1">
+              Image URL
+            </label>
             <input
               type="text"
               placeholder="Enter image URL"
@@ -134,7 +156,9 @@ const AddProduct = ({ setProductData }) => {
           </div>
 
           <div>
-            <label className="block font-semibold font-serif mb-1">Description</label>
+            <label className="block font-semibold font-serif mb-1">
+              Description
+            </label>
             <textarea
               rows="4"
               placeholder="Enter product description"
@@ -153,13 +177,14 @@ const AddProduct = ({ setProductData }) => {
           <div className="flex justify-center gap-4 pt-4">
             <button
               type="submit"
-              className="bg-green-600 font-serif text-white px-6 py-2 rounded-lg hover:bg-green-700"
+              className="bg-green-600 cursor-pointer font-serif text-white px-6 py-2 rounded-lg hover:bg-green-700"
             >
               Add Product
             </button>
             <button
+              onClick={onResetClick}
               type="reset"
-              className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700"
+              className="bg-red-600 cursor-pointer font-serif text-white px-6 py-2 rounded-lg hover:bg-red-700"
             >
               Reset
             </button>

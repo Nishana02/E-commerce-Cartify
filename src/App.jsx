@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
 import { Flip, ToastContainer } from "react-toastify";
@@ -8,6 +7,7 @@ import { useState } from "react";
 import AddProduct from "./pages/AddProduct";
 import Header from "./components/Header";
 import EditProduct from "./pages/EditProduct";
+import PNF from "./pages/PNF";
 
 function App() {
   const [productData, setProductData] = useState([]);
@@ -48,6 +48,8 @@ function App() {
             />
           }
         />
+
+        <Route path="/*" element={<PNF />} />
       </Routes>
 
       <ToastContainer

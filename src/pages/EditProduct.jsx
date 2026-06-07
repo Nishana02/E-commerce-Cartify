@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const EditProduct = ({productData,setProductData}) => {
+const EditProduct = ({ productData, setProductData }) => {
   const { id } = useParams();
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const [editData, setEditData] = useState({
     title: "",
@@ -39,18 +39,16 @@ const EditProduct = ({productData,setProductData}) => {
         `https://fakestoreapi.com/products/${id}`,
         editData,
       );
-    if(apiResponse.status==200){
-        toast.success("Successfully updated")
-         setEditData(apiResponse.data)
+      if (apiResponse.status == 200) {
+        toast.success("Successfully updated");
+        setEditData(apiResponse.data);
 
-  const updatedProducts = productData.map((product) =>
-    product.id == id ? apiResponse.data : product
-  );
-
-  setProductData(updatedProducts);
-       
-        navigate("/")
-    }
+        const updatedProducts = productData.map((product) =>
+          product.id == id ? apiResponse.data : product,
+        );
+        setProductData(updatedProducts);
+        navigate(`/product/${id}`);
+      }
     } catch (error) {
       toast.error("Something went wrong while editing");
     }
@@ -59,7 +57,9 @@ const EditProduct = ({productData,setProductData}) => {
   return (
     <div className="m-h-screen flex justify-center items-center bg-gray-100">
       <div className="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 mt-30">
-        <h1 className=" text-3xl font-bold text-center font-serif mb-6">Edit Details</h1>
+        <h1 className=" text-3xl font-bold text-center font-serif mb-6">
+          Edit Details
+        </h1>
 
         <div>
           <label className="block font-semibold font-serif" htmlFor="">
@@ -117,7 +117,9 @@ const EditProduct = ({productData,setProductData}) => {
           />
         </div>
         <div className="mt-5">
-          <label className="block font-semibold font-serif mb-1">Description</label>
+          <label className="block font-semibold font-serif mb-1">
+            Description
+          </label>
           <textarea
             value={editData.description}
             onChange={(e) =>
@@ -129,7 +131,9 @@ const EditProduct = ({productData,setProductData}) => {
           ></textarea>
           <div className="mt-3">
             <button
-            onClick={()=>onEditClick(id)} className="mx-35 font-serif text-white w-30 cursor-pointer  bg-green-700 p-4 hover:bg-green-900 rounded">
+              onClick={() => onEditClick(id)}
+              className="mx-35 font-serif text-white w-30 cursor-pointer  bg-green-700 p-4 hover:bg-green-900 rounded"
+            >
               Update
             </button>
           </div>
